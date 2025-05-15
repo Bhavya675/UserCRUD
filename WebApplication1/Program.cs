@@ -15,15 +15,20 @@ builder.Services.AddScoped<IPhoneService, PhoneService>();
 
 var app = builder.Build();
 
+app.Run(async (context) =>
+{
+await context.Response.WriteAsync("Run Middleware Component Works and Getting Response from First Middleware!");
+});
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-//     app.UseSwaggerUI(c =>
-// {
-//     c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-//     c.RoutePrefix = ""; // serves Swagger UI at root "/"
-// });
+    //     app.UseSwaggerUI(c =>
+    // {
+    //     c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+    //     c.RoutePrefix = ""; // serves Swagger UI at root "/"
+    // });
 
     app.UseSwaggerUI();
 }
