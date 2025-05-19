@@ -1,0 +1,16 @@
+@model Products
+
+<h2>Product Details</h2>
+
+<table class="table">
+    <tr>
+        <th>Product Name:</th>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <th>Price:</th>
+        <td>@Model.Price</td>
+    </tr>
+</table>
+
+<a class="btn btn-primary" asp-controller="Products" asp-action="Index">Back to List</a>

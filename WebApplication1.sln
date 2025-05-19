@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebAppli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{2DD74681-46AD-455D-AC0F-DD35F464C21A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCProducts", "MVCProducts\MVCProducts.csproj", "{9022B937-C0A5-4ADE-8B9E-F0D54A0C9C5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,13 @@ Global
 		{2DD74681-46AD-455D-AC0F-DD35F464C21A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DD74681-46AD-455D-AC0F-DD35F464C21A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DD74681-46AD-455D-AC0F-DD35F464C21A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{980CFF90-45A2-49E1-A746-CF1F34831B3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{980CFF90-45A2-49E1-A746-CF1F34831B3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{980CFF90-45A2-49E1-A746-CF1F34831B3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{980CFF90-45A2-49E1-A746-CF1F34831B3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9022B937-C0A5-4ADE-8B9E-F0D54A0C9C5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9022B937-C0A5-4ADE-8B9E-F0D54A0C9C5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9022B937-C0A5-4ADE-8B9E-F0D54A0C9C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9022B937-C0A5-4ADE-8B9E-F0D54A0C9C5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
