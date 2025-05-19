@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Projects\\UserCRUD\\WebApplication1\\WebApplication1.csproj": {}
+    "D:\\Projects\\UserCRUD\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "d:\\Projects\\UserCRUD\\WebApplication1\\WebApplication1.csproj": {
+    "D:\\Projects\\UserCRUD\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Projects\\UserCRUD\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "D:\\Projects\\UserCRUD\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "d:\\Projects\\UserCRUD\\WebApplication1\\WebApplication1.csproj",
+        "projectPath": "D:\\Projects\\UserCRUD\\WebApplication1\\WebApplication1.csproj",
         "packagesPath": "C:\\Users\\pca245\\.nuget\\packages\\",
-        "outputPath": "d:\\Projects\\UserCRUD\\WebApplication1\\obj\\",
+        "outputPath": "D:\\Projects\\UserCRUD\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -49,7 +49,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[8.1.1, )"
             }
           },
           "imports": [
