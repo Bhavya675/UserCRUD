@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Projects\\UserCRUD\\ConsoleApp1\\ConsoleApp1.csproj": {}
+    "D:\\Projects\\UserCRUD\\ConsoleApp1\\ConsoleApp1.csproj": {}
   },
   "projects": {
-    "d:\\Projects\\UserCRUD\\ConsoleApp1\\ConsoleApp1.csproj": {
+    "D:\\Projects\\UserCRUD\\ConsoleApp1\\ConsoleApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Projects\\UserCRUD\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectUniqueName": "D:\\Projects\\UserCRUD\\ConsoleApp1\\ConsoleApp1.csproj",
         "projectName": "ConsoleApp1",
-        "projectPath": "d:\\Projects\\UserCRUD\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectPath": "D:\\Projects\\UserCRUD\\ConsoleApp1\\ConsoleApp1.csproj",
         "packagesPath": "C:\\Users\\pca245\\.nuget\\packages\\",
-        "outputPath": "d:\\Projects\\UserCRUD\\ConsoleApp1\\obj\\",
+        "outputPath": "D:\\Projects\\UserCRUD\\ConsoleApp1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

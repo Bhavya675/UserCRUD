@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCProducts", "MVCProducts\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerApi", "ControllerApi\ControllerApi.csproj", "{84677935-32B9-4CAB-8662-A36923299925}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement", "UserManagement\UserManagement.csproj", "{AF970EA6-79EF-46D6-BAB2-4EE26F552AC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPI", "MinimalAPI\MinimalAPI.csproj", "{613FA373-1FE4-4388-BA48-96DEDE737088}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,5 +38,13 @@ Global
 		{84677935-32B9-4CAB-8662-A36923299925}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84677935-32B9-4CAB-8662-A36923299925}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84677935-32B9-4CAB-8662-A36923299925}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF970EA6-79EF-46D6-BAB2-4EE26F552AC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF970EA6-79EF-46D6-BAB2-4EE26F552AC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF970EA6-79EF-46D6-BAB2-4EE26F552AC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF970EA6-79EF-46D6-BAB2-4EE26F552AC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{613FA373-1FE4-4388-BA48-96DEDE737088}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{613FA373-1FE4-4388-BA48-96DEDE737088}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{613FA373-1FE4-4388-BA48-96DEDE737088}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{613FA373-1FE4-4388-BA48-96DEDE737088}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

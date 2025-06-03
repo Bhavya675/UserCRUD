@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using ControllerApi.DTO;
 using ControllerApi.Interfaces;
-using ControllerApi.Models;
+using ControllerApi.Entities;
+// using ControllerApi.Models;
 
 namespace ControllerApi;
 
@@ -10,9 +11,11 @@ namespace ControllerApi;
 public class PhoneController : ControllerBase
 {
     private readonly IPhoneService _phoneService;
+    // private readonly EmployeeDbContext _dbContext;
     public PhoneController(IPhoneService phoneService)
     {
         _phoneService = phoneService;
+        // _dbContext = dbContext;
     }
 
     [HttpGet]
@@ -25,7 +28,7 @@ public class PhoneController : ControllerBase
         }
         else
         {
-            return NotFound("Opps! No Records Found.");
+            return NotFound("No Records Found.");
         }
     }
 
@@ -54,8 +57,16 @@ public class PhoneController : ControllerBase
             DisplayType = requestObject.DisplayType,
             Price = requestObject.Price
         };
-        _phoneService.AddPhone(phone);
-        return Ok("Phone Added Successfully!");
+        var result = _phoneService.AddPhone(phone);
+        if (result)
+        {
+
+            return Ok("Phone Added Successfully!");
+        }
+        else
+        {
+            return BadRequest("Record Already Exists");
+        }
     }
 
     [HttpPut("{id}")]
