@@ -1,9 +1,9 @@
-using UserManagement.Entities;
+using UserManagement.Common;
 
-namespace UserManagement.DTO.Response
+namespace UserManagement.Models
 {
     public class UserResponse : BaseResponse
     {
-        public List<User>? Data { get; set; }
+        public List<UserResponseDTO>? Data { get; set; }
     }
 }

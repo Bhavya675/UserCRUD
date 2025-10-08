@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using UserManagement.Entities;
 
@@ -18,6 +14,8 @@ namespace UserManagement.Repository
         public async Task AddAsync(User user) => await dbContext.Users.AddAsync(user);
 
         public async Task<bool> AnyAsync(Expression<Func<User, bool>> predicate) => await dbContext.Users.AnyAsync(predicate);
+
+        public async Task<User?> FirstOrDefaultAsync(Expression<Func<User, bool>> predicate) => await dbContext.Users.FirstOrDefaultAsync(predicate);
 
         public void Update(User user) => dbContext.Users.Update(user);
 

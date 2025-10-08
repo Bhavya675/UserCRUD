@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using UserManagement.Common.Validators;
 using UserManagement.Entities;
 using UserManagement.Interfaces;
-using UserManagement.Models.DTO.Request;
+using UserManagement.Models;
 using UserManagement.Repository;
 using UserManagement.Services;
 
@@ -37,6 +33,7 @@ namespace UserManagement.Common
         public static void RegisterValidators(this IServiceCollection services)
         {
             services.AddTransient<IValidator<UserDTO>, UserValidator>();
+            services.AddTransient<IValidator<LoginRequestDTO>, LoginValidator>();
         }
 
         public static void AddCustomAuthentication(this IServiceCollection services, IConfiguration configuration)

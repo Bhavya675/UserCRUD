@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using UserManagement.DTO;
 using AutoMapper;
 using UserManagement.Entities;
-using UserManagement.Models.DTO.Request;
-// using UserManagement.Models;
+using UserManagement.Models;
 
 namespace UserManagement.Mapping
 {
@@ -15,7 +9,8 @@ namespace UserManagement.Mapping
 
         public MappingProfile()
         {
-            CreateMap<UserDTO, User>().ReverseMap();
+            CreateMap<User, UserDTO>().ReverseMap();
+            CreateMap<User, UserResponseDTO>().ReverseMap();
         }
     }
 }

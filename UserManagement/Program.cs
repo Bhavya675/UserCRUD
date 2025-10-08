@@ -1,16 +1,3 @@
-using System.Text;
-using AutoMapper;
-using FluentValidation;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using UserManagement.Common.Validators;
-using UserManagement.Entities;
-using UserManagement.Interfaces;
-using UserManagement.Mapping;
-using UserManagement.Models.DTO.Request;
-using UserManagement.Repository;
-using UserManagement.Services;
 using UserManagement.Common;
 
 var builder = WebApplication.CreateBuilder(args);

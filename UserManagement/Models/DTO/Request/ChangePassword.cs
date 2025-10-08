@@ -1,4 +1,4 @@
-namespace UserManagement.Models.DTO.Request
+namespace UserManagement.Models
 {
     public class ChangePassword
     {

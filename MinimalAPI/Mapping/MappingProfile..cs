@@ -15,7 +15,7 @@ namespace MinimalAPI.Mapping
 
         public MappingProfile()
         {
-            CreateMap<UserDTO, User>().ReverseMap();
+            CreateMap<ProductDTO, Product>().ReverseMap();
         }
     }
 }

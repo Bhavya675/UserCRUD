@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace UserManagement.Entities;
+﻿namespace UserManagement.Entities;
 
 public partial class User
 {
@@ -21,7 +18,7 @@ public partial class User
 
     public string? PhoneNumber { get; set; }
 
-    public DateTime? DateOfBirth { get; set; }
+    public DateOnly? DateOfBirth { get; set; }
 
     public bool IsActive { get; set; }
 

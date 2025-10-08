@@ -6,7 +6,8 @@ Console.WriteLine(Demo());
 
 async Task Demo()
 {
-    // Here we can not access Start and Stop methods of Base class because those are abstract methods
+    // Here we can not access Start and Stop methods of Base class 
+    // because those are abstract methods but we can call the overridden methods of the child class car
     Car car = new Car();
     car.Reset();
     car.Refuel(1);

@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace MinimalAPI.Models.DTO.Request
+namespace UserManagement.Models
 {
-    public class UserDTO
+    public class UserResponseDTO
     {
+        public int Id { get; set; }
+
         public string? FirstName { get; set; }
 
         public string? LastName { get; set; }

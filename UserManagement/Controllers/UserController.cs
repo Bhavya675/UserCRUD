@@ -1,18 +1,15 @@
 using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
-using Npgsql.Internal.Postgres;
 using UserManagement.Common.Validators;
-using UserManagement.Entities;
 using UserManagement.Interfaces;
-using UserManagement.Models.DTO.Request;
-// using UserManagement.Models;
+using UserManagement.Models;
 
 namespace UserManagement.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class UserController(IUserService _userService, IMapper _mapper) : ControllerBase
+public class UserController(IUserService _userService, IValidator<UserDTO> _validator) : ControllerBase
 {
     [HttpGet]
     // [Authorize(Roles = "admin")]
@@ -33,14 +30,13 @@ public class UserController(IUserService _userService, IMapper _mapper) : Contro
 
     [HttpPost("add-user")]
     // [Authorize(Roles = "admin")]
-    public async Task<IActionResult> AddUser(UserDTO requestObject)
+    public async Task<IActionResult> AddUser([FromBody] UserDTO requestObject)
     {
-        var validator = new UserValidator();
-        var validationResult = validator.Validate(requestObject);
+        // var validator = new UserValidator();
+        var validationResult = await _validator.ValidateAsync(requestObject);
         if (validationResult.IsValid)
         {
-            var user = _mapper.Map<User>(requestObject);
-            var result = await _userService.AddUserAsync(user);
+            var result = await _userService.AddUserAsync(requestObject);
             return result.IsSuccess ? Ok(result) : BadRequest(result);
         }
         else
@@ -58,12 +54,11 @@ public class UserController(IUserService _userService, IMapper _mapper) : Contro
 
     public async Task<IActionResult> UpdateUser(int id, UserDTO requestObject)
     {
-        var validator = new UserValidator();
-        var validationResult = validator.Validate(requestObject);
+        // var validator = new UserValidator();
+        var validationResult = await _validator.ValidateAsync(requestObject);
         if (validationResult.IsValid)
         {
-            var user = _mapper.Map<User>(requestObject);
-            var result = await _userService.UpdateUserAsync(id, user);
+            var result = await _userService.UpdateUserAsync(id, requestObject);
             return result.IsSuccess ? Ok(result) : NotFound(result);
         }
         else

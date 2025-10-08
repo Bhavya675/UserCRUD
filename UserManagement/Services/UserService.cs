@@ -3,51 +3,44 @@ using System.Security.Claims;
 using System.Text;
 using AutoMapper;
 using Microsoft.IdentityModel.Tokens;
-using UserManagement.DTO.Response;
 using UserManagement.Entities;
 using UserManagement.Interfaces;
-using UserManagement.Models.DTO.Request;
+using UserManagement.Models;
 using UserManagement.Repository;
 
 namespace UserManagement.Services;
 
 public class UserService(IUserRepository repo, IConfiguration _config, IMapper _mapper) : IUserService
 {
-    public async Task<List<User>> GetAllUsersAsync() => await repo.GetAllAsync();
+    public async Task<List<UserResponseDTO>> GetAllUsersAsync() => _mapper.Map<List<UserResponseDTO>>(await repo.GetAllAsync());
 
-    public async Task<User?> GetUserByIdAsync(int id) => await repo.GetByIdAsync(id);
+    public async Task<UserResponseDTO?> GetUserByIdAsync(int id) => _mapper.Map<UserResponseDTO>(await repo.GetByIdAsync(id));
 
-    public async Task<UserResponse> AddUserAsync(User requestObject)
+    public async Task<UserResponse> AddUserAsync(UserDTO requestObject)
     {
-        var users = await repo.GetAllAsync();
-        var isDuplicate = users.Any(x => x.Email == requestObject.Email);
-
-        if (isDuplicate)
+        try
         {
-            return GetResponse(false, "User with this email already exists", null);
+            var isDuplicate = await repo.AnyAsync(x => x.Email == requestObject.Email);
+
+            if (isDuplicate)
+            {
+                return GetResponse(false, "User with this email already exists", null);
+            }
+
+            var request = _mapper.Map<User>(requestObject);
+            await repo.AddAsync(request);
+            await repo.SaveChangesAsync();
+
+            var response = _mapper.Map<UserResponseDTO>(request);
+            return GetResponse(true, "User created successfully.", new List<UserResponseDTO> { response });
         }
-
-
-        // await repo.AddAsync(new User
-        // {
-        //     FirstName = requestObject.FirstName,
-        //     LastName = requestObject.LastName,
-        //     Username = requestObject.FirstName + "." + requestObject.LastName,
-        //     Email = requestObject.Email,
-        //     Password = requestObject.Password,
-        //     PhoneNumber = requestObject.PhoneNumber,
-        //     Address = requestObject.Address,
-        //     IsActive = requestObject.IsActive,
-        //     Role = requestObject.Role,
-        //     DateOfBirth = requestObject.DateOfBirth
-        // });
-
-        await repo.AddAsync(requestObject);
-        await repo.SaveChangesAsync();
-        return GetResponse(true, "User created successfully.", new List<User> { requestObject });
+        catch (Exception ex)
+        {
+            return GetResponse(false, $"An error occurred while creating the user: {ex.Message}", null);
+        }
     }
 
-    public async Task<UserResponse> UpdateUserAsync(int id, User requestObject)
+    public async Task<UserResponse> UpdateUserAsync(int id, UserDTO requestObject)
     {
         var record = await repo.GetByIdAsync(id);
 
@@ -62,23 +55,13 @@ public class UserService(IUserRepository repo, IConfiguration _config, IMapper _
 
         if (record != null)
         {
-            // record.FirstName = requestObject.FirstName;
-            // record.LastName = requestObject.LastName;
-            // record.Username = requestObject.Username;
-            // record.Email = requestObject.Email;
-            // record.Password = requestObject.Password;
-            // record.PhoneNumber = requestObject.PhoneNumber;
-            // record.Address = requestObject.Address;
-            // record.IsActive = requestObject.IsActive;
-            // record.Role = requestObject.Role;
-            // record.DateOfBirth = requestObject.DateOfBirth;
-            // record.UpdatedAt = DateTime.Now;
             _mapper.Map(requestObject, record);
-            record.UpdatedBy = id;
 
-            // repo.Update(record);
+            repo.Update(record);
             await repo.SaveChangesAsync();
-            return GetResponse(true, "User updated successfully", new List<User> { record });
+
+            var response = _mapper.Map<UserResponseDTO>(record);
+            return GetResponse(true, "User updated successfully", new List<UserResponseDTO> { response });
         }
         else
         {
@@ -104,10 +87,10 @@ public class UserService(IUserRepository repo, IConfiguration _config, IMapper _
     public async Task<LoginResponse> Login(LoginRequestDTO requestObject)
     {
         var users = await repo.GetAllAsync();
-        var validEmail = users.Any(x => x.Email == requestObject.Email);
+        var validEmail = await repo.AnyAsync(x => x.Email == requestObject.Email);
         if (validEmail)
         {
-            var user = users.FirstOrDefault(x => x.Email == requestObject.Email && x.Password == requestObject.Password);
+            var user = await repo.FirstOrDefaultAsync(x => x.Email == requestObject.Email && x.Password == requestObject.Password);
             if (user != null)
             {
                 // JWT
@@ -185,7 +168,7 @@ public class UserService(IUserRepository repo, IConfiguration _config, IMapper _
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
 
-    private UserResponse GetResponse(bool isSuccess, string Message, List<User>? Data)
+    private UserResponse GetResponse(bool isSuccess, string Message, List<UserResponseDTO>? Data)
     {
         return new UserResponse
         {

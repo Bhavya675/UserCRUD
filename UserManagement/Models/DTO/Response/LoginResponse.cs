@@ -1,4 +1,6 @@
-namespace UserManagement.DTO.Response
+using UserManagement.Common;
+
+namespace UserManagement.Models
 {
     public class LoginResponse : BaseResponse
     {

@@ -1,4 +1,4 @@
-namespace UserManagement.DTO
+namespace UserManagement.Common
 {
     public class BaseResponse
     {
