@@ -89,7 +89,7 @@ namespace ControllerApi.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Employees");
+                    b.ToTable("Employee");
                 });
 
             modelBuilder.Entity("ControllerApi.Entities.Phone", b =>
@@ -115,36 +115,6 @@ namespace ControllerApi.Migrations
                     b.HasKey("PhoneId");
 
                     b.ToTable("Phones");
-                });
-
-            modelBuilder.Entity("ControllerApi.Entities.Project", b =>
-                {
-                    b.Property<int>("ProjectId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ProjectId"));
-
-                    b.Property<DateOnly?>("EndDate")
-                        .HasColumnType("date");
-
-                    b.Property<string>("ProjectName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("ProjectType")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateOnly>("StartDate")
-                        .HasColumnType("date");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("boolean");
-
-                    b.HasKey("ProjectId");
-
-                    b.ToTable("Projects");
                 });
 
             modelBuilder.Entity("ControllerApi.Entities.User", b =>

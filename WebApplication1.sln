@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement", "UserManag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalAPI", "MinimalAPI\MinimalAPI.csproj", "{613FA373-1FE4-4388-BA48-96DEDE737088}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DummyAPI", "DummyAPI\DummyAPI.csproj", "{B4856A19-C7AF-4727-AD29-2DDFE121E7AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,5 +48,9 @@ Global
 		{613FA373-1FE4-4388-BA48-96DEDE737088}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{613FA373-1FE4-4388-BA48-96DEDE737088}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{613FA373-1FE4-4388-BA48-96DEDE737088}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4856A19-C7AF-4727-AD29-2DDFE121E7AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4856A19-C7AF-4727-AD29-2DDFE121E7AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4856A19-C7AF-4727-AD29-2DDFE121E7AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4856A19-C7AF-4727-AD29-2DDFE121E7AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

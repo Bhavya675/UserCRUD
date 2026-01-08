@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace ControllerApi.Models;
 
 public class Phone

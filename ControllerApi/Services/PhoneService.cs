@@ -36,6 +36,8 @@ public class PhoneService : IPhoneService
     public bool AddPhone(Phone phone)
     {
         var isDuplicate = _dbContext.Phones.Any(x => x.Name != null && phone.Name != null && x.Name.ToLower() == phone.Name.ToLower());
+
+        var q = _dbContext.Phones.Where(x => x.Name == "Bhavya").ToList();
         if (isDuplicate)
         {
             return false;
